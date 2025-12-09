@@ -2,8 +2,15 @@ package com.example.newsWebsite.entitie;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "comment")
 public class Comment {
@@ -19,19 +26,6 @@ public class Comment {
     private String text;
     private LocalDateTime postedAt = LocalDateTime.now();
 
-    public Comment() {}
-    public Comment(News news, String author, String text) {
-        this.news = news; this.author = author; this.text = text;
-    }
 
-    public Long getId() { return id; }
-    public News getNews() { return news; }
-    public String getAuthor() { return author; }
-    public String getText() { return text; }
-    public LocalDateTime getPostedAt() { return postedAt; }
-
-    public void setNews(News news) { this.news = news; }
-    public void setAuthor(String author) { this.author = author; }
-    public void setText(String text) { this.text = text; }
 }
 

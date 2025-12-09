@@ -1,10 +1,17 @@
 package com.example.newsWebsite.entitie;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "news")
 public class News {
@@ -26,16 +33,5 @@ public class News {
     )
     private Set<Category> categories = new HashSet<>();
 
-    // constructors, getters, setters
-    public News() {}
-    public News(String title, String content) { this.title = title; this.content = content; }
-
-    public Long getId() { return id; }
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    public String getContent() { return content; }
-    public void setContent(String content) { this.content = content; }
-    public LocalDateTime getPublishedAt() { return publishedAt; }
-    public Set<Category> getCategories() { return categories; }
 }
 

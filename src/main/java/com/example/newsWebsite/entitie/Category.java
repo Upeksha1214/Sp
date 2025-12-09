@@ -1,9 +1,16 @@
 package com.example.newsWebsite.entitie;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "category")
 public class Category {
@@ -16,12 +23,5 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private Set<News> news = new HashSet<>();
 
-    // constructors, getters, setters
-    public Category() {}
-    public Category(String name) { this.name = name; }
-
-    public Long getId() { return id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
 }
 
